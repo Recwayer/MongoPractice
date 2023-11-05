@@ -4,6 +4,8 @@ import com.example.mongopractice.models.Book;
 import com.example.mongopractice.models.Reader;
 import com.example.mongopractice.models.factories.BookFactory;
 import com.example.mongopractice.models.factories.ReaderFactory;
+import com.example.mongopractice.services.BookService;
+import com.example.mongopractice.services.ReaderService;
 import com.example.mongopractice.services.impl.BookServiceImpl;
 import com.example.mongopractice.services.impl.ReaderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +16,8 @@ import java.util.List;
 
 @Component
 public class Init implements CommandLineRunner {
-    private final BookServiceImpl booksService;
-    private final ReaderServiceImpl readerService;
+    private final BookService booksService;
+    private final ReaderService readerService;
 
     private final BookFactory bookFactory;
     private final ReaderFactory readerFactory;
@@ -30,10 +32,10 @@ public class Init implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-//        List<Book> books =
-//                bookFactory.listBuilder().books(100, 100);
-//        booksService.saveAll(books);
-//        List<Reader> readers = readerFactory.listBuilder().readers(100, 100);
-//        readerService.saveAll(readers);
+        List<Book> books =
+                bookFactory.listBuilder().books(100, 100);
+        booksService.saveAll(books);
+        List<Reader> readers = readerFactory.listBuilder().readers(100, 100);
+        readerService.saveAll(readers);
     }
 }

@@ -1,6 +1,8 @@
 package com.example.mongopractice;
 
 import com.example.mongopractice.models.Book;
+import com.example.mongopractice.services.BookService;
+import com.example.mongopractice.services.ReaderService;
 import com.example.mongopractice.services.impl.BookServiceImpl;
 import com.example.mongopractice.services.impl.ReaderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +13,8 @@ import java.util.List;
 
 @Component
 public class CustomCode implements CommandLineRunner {
-    private final BookServiceImpl bookService;
-    private final ReaderServiceImpl readerService;
+    private final BookService bookService;
+    private final ReaderService readerService;
 
     @Autowired
     public CustomCode(BookServiceImpl bookService, ReaderServiceImpl readerService) {
